@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';  // 使用 useNavigate 而不是 useHistory
 
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();  // 使用 useNavigate hook
 
     const loginUser = async () => {
         console.log('Attempting to login with email:', email);  
@@ -14,10 +16,9 @@ export default function Login() {
             const token = response.data;
             localStorage.setItem('token', token);
             console.log('Login successful! Token:', token);  
-            window.location = "/test-view-cars";  // redirect to Home page after successful login
+            navigate('/view-cars');  // 使用 React 的新方法进行页面跳转
         } catch (err) {
             console.error('Login failed:', err);  
-            // Assuming the server returns a string as an error message.
             const errorMessage = err.response && err.response.data ? err.response.data : "Login failed!";
             setError(errorMessage);
         }
@@ -49,5 +50,5 @@ export default function Login() {
                 {error && <p className="text-danger text-center">{error}</p>}
             </div>
         </div>
-    )
+    );
 }

@@ -1,64 +1,73 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import '../styles.css';
 
 function ViewCars() {
   const [cars, setCars] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const token = localStorage.getItem('token');  
+    async function fetchData() {
+      console.log("Fetching cars...");
 
-    if (!token) {
-      console.error("No token found. Redirecting to login page.");
-      window.location = "/login";  // Redirect to login page
-      return;
+      // 获取token并打印以进行验证
+      const token = localStorage.getItem('token');
+      console.log('Token:', token);
+
+      try {
+        const response = await axios.get('http://localhost:8080/car', {
+          headers: {
+            'Authorization': 'Bearer ' + token
+          }
+        });
+
+        console.log('Cars response:', response.data);
+        setCars(response.data);
+
+      } catch (error) {
+        if (error.response) {
+          console.error('Server responded with an error:', error.response.data);
+        } else if (error.request) {
+          console.error('No response received:', error.request);
+        } else {
+          console.error('Error setting up the request:', error.message);
+        }
+      }
     }
 
-    fetch("http://localhost:8080/car", {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    })
-    .then(response => {
-      if (!response.ok) {
-        if(response.status === 401) {
-          console.error("Token is not valid or expired. Redirecting to login page.");
-          window.location = "/login";
-          return;
-        }
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log("Received cars:", data);
-      setCars(data);
-      setLoading(false);
-    })
-    .catch(err => {
-      console.log("Fetch error:", err.message);
-      setError(err.message);
-      setLoading(false);
-    });
-
-  }, []);
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>Error: {error}</p>;
-  }
+    fetchData();
+  }, []);  
 
   return (
-    <div className="container mt-5">
-      <h2>Cars List</h2>
-      <p>Test Text</p>
-      {/* ... */}
+    <div className="container mt-4">
+        <h2 className="car-list-title">Car List</h2>
+        <table className="fancy-table">
+            <thead>
+                <tr>
+                    <th>Car ID</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Color</th>
+                    <th>Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                {cars.map(car => (
+                    <tr key={car.id}>
+                        <td>{car.id}</td>
+                        <td>{car.brand}</td>
+                        <td>{car.model}</td>
+                        <td>{car.color}</td>
+                        <td>{car.year}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
     </div>
-  );
-  
+);
+
+
+
 }
+
 
 export default ViewCars;

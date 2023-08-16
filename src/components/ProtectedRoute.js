@@ -10,7 +10,13 @@ function ProtectedRoute() {
     }
 
     // Otherwise, render the child component
-    return <Outlet />;
+    return (
+        <div>
+            <Outlet />
+        </div>
+    );
 }
+
+
 
 export default ProtectedRoute;

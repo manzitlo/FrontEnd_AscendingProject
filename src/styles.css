@@ -1,0 +1,63 @@
+/* styles.css */
+
+.car-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.car-item {
+    border: 1px solid #ddd;
+    margin-top: -1px; 
+    background-color: #f2f2f2;
+    padding: 12px 16px;
+}
+
+.car-title {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.car-details {
+    color: #777;
+    font-size: 1.2em;
+}
+
+.car-brand-model {
+    font-weight: bold;
+}
+
+.car-list-title {
+    font-family: 'YourChosenFont', cursive; 
+    font-size: 2.5em;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+    margin-bottom: 20px; 
+  }
+
+
+/* Table style */
+
+.fancy-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+  }
+  
+  .fancy-table th, .fancy-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .fancy-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .fancy-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+
