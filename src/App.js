@@ -7,10 +7,10 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import ViewCars from './cars/ViewCars';
-import TestViewCars from './cars/TestViewCars';
 
 // import axios from 'axios';
 import ProtectedRoute from './components/ProtectedRoute';
+import Footer from './layout/Footer';
 
 function App() {
 
@@ -23,6 +23,7 @@ function App() {
       <div className="App">
         <Router>
           <Navbar />
+
   
           <Routes>
             <Route path="/login" element={<Login />} />
@@ -32,9 +33,10 @@ function App() {
             <Route path="/view-cars" element={<ProtectedRoute />}>
     <Route index element={<ViewCars />} />
 </Route>
-            <Route path="/test-view-cars" element={<TestViewCars />} />
           </Routes>
         </Router>
+
+        <Footer />
       </div>
     );
 }

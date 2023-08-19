@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+
+body .navbar {
+    box-shadow: 0 15px 35px #f0cc1b, 
+                0 2.5px 5px #df4301;
+}
+
+body .navbar:hover {
+    box-shadow: 0 0 25px #00ffff, 0 0 5px #00ffff;
+}
+
+
+.navbar-brand {
+  font-family: 'Dancing Script', cursive;
+  font-size: 24px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.navbar {
+    box-shadow: 0 5px 15px #f0cc1b, 
+                0 2.5px 5px #df4301;
+}
+
+.navbar:hover {
+    box-shadow: 0 0 15px #00ffff,  
+                0 0 5px #00ffff;  
+  }
+  
+.navbar.bg-primary {
+    background-color: #2a2a2a !important;
+    box-shadow: 0 4px 8px rgba(248, 222, 24, 0.1);
+}
+
+.navbar .auth-buttons {
+    margin-left: 35px; 
+}
+
+/* Quick Start Section */
+.quick-start-section {
+    padding: 2rem 0;
+    background-color: #f7f7f7;  /* Light gray background */
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(243, 251, 26, 0.1);
+}
+
+.quick-start-section h2 {
+    font-size: 2rem;
+    color: #333;  /* Dark gray color */
+    margin-bottom: 1.5rem;
+}
+
+.quick-start-section ul {
+    list-style-type: none;  /* Remove the default bullets */
+    padding: 0;
+}
+
+.quick-start-section li {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.quick-start-section li strong {
+    color: #007bff;  /* Blue color, same as text-info */
+}
+
+
