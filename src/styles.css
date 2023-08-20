@@ -60,5 +60,15 @@
   .fancy-table tbody tr:nth-child(even) {
     background-color: #f9f9f9;
   }
-  
+
+  .custom-carousel-img {
+    max-width: 500px; 
+    margin: 0 auto; 
+}
+
+  .carousel-caption {
+    bottom: 5%;
+    background: rgba(0,0,0,0.5);
+}
+
 

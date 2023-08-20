@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import ViewCars from './cars/ViewCars';
+import Discover from './pages/Discover'; // Add this import at the top with other imports
 
 // import axios from 'axios';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -29,6 +30,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />  {/* Main page */}
             <Route path="/signup" element={<Signup />} />
+            <Route path="/discover" element={<Discover />} />
             <Route path="/" element={<Home />} />
             <Route path="/view-cars" element={<ProtectedRoute />}>
     <Route index element={<ViewCars />} />
