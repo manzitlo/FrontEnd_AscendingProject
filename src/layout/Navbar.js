@@ -74,10 +74,10 @@ export default function Navbar() {
                 ) : (
                   <>
                     <li className="nav-item auth-buttons">
-                      <Link to="/signup" className='btn btn-success me-2'>Signup</Link>
+                      <Link to="/signup" className='btn btn-light me-2'>Signup</Link>
                     </li>
                     <li className="nav-item">
-                      <Link to="/login" className='btn btn-light'>Login</Link>
+                      <Link to="/login" className='btn btn-success'>Login</Link>
                     </li>
                   </>
                 )}
